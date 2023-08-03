@@ -1,0 +1,61 @@
+
+body {
+  height: 100vh;
+  width: 100vw;
+  background-image: linear-gradient(to top, rgb(255, 157, 0), rgba(192,224,53,255));
+  display: flex;
+}
+
+.search-container {
+  width: 50vw;
+  max-width: 450px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  margin: 35vh auto 0;
+  position: relative;
+}
+
+.search-container input {
+ padding: 15px;
+ border: 1.5px rgba(212, 168, 10, 0.5) solid;
+ border-radius: 30px;
+ background-color: rgba(254, 230, 19, 0.7);
+}
+
+input:focus{
+  background-color: rgba(254, 230, 19, 1);
+}
+
+.search-container .suggestions {
+   max-height: 260px;
+   width: 50vw;
+   max-width: 450px;
+   position: absolute;
+   top: 100%;
+   margin: 8px auto;
+   overflow: hidden;
+}
+
+ul {
+  max-height: 0;  
+  padding: 0;
+  margin: 0;
+}
+
+ul.has-suggestions {
+  width: 500px;
+  height: inherit;
+  max-height: 300px;
+  overflow: auto;
+}
+ul li {
+  padding: 10px;
+  margin-bottom: 3px;
+  list-style: none;
+  background-color: rgba(254, 230, 19, 0.5);
+}
+ul li:hover {
+  cursor: pointer;
+  background-color: rgba(228,75,69,0.5);
+}
