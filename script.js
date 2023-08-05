@@ -1,5 +1,6 @@
 const input = document.querySelector('#fruit');
 const suggestions = document.querySelector('.suggestions ul');
+const body = document.querySelector('body');
 
 const fruits = ['Apple', 'Apricot', 'Avocado 🥑', 'Banana', 'Bilberry', 'Blackberry', 'Blackcurrant', 'Blueberry', 'Boysenberry', 'Currant', 'Cherry', 'Coconut', 'Cranberry', 'Cucumber', 'Custard apple', 'Damson', 'Date', 'Dragonfruit', 'Durian', 'Elderberry', 'Feijoa', 'Fig', 'Gooseberry', 'Grape', 'Raisin', 'Grapefruit', 'Guava', 'Honeyberry', 'Huckleberry', 'Jabuticaba', 'Jackfruit', 'Jambul', 'Juniper berry', 'Kiwifruit', 'Kumquat', 'Lemon', 'Lime', 'Loquat', 'Longan', 'Lychee', 'Mango', 'Mangosteen', 'Marionberry', 'Melon', 'Cantaloupe', 'Honeydew', 'Watermelon', 'Miracle fruit', 'Mulberry', 'Nectarine', 'Nance', 'Olive', 'Orange', 'Clementine', 'Mandarine', 'Tangerine', 'Papaya', 'Passionfruit', 'Peach', 'Pear', 'Persimmon', 'Plantain', 'Plum', 'Pineapple', 'Pomegranate', 'Pomelo', 'Quince', 'Raspberry', 'Salmonberry', 'Rambutan', 'Redcurrant', 'Salak', 'Satsuma', 'Soursop', 'Star fruit', 'Strawberry', 'Tamarillo', 'Tamarind', 'Yuzu'];
 
@@ -21,8 +22,12 @@ function searchHandler(e) {
 	showSuggestions(search(input.value));
 }
 
-function showSuggestions(results) {
+function hideSuggestions(){
 	suggestions.innerHTML = '';
+}
+
+function showSuggestions(results) {
+	hideSuggestions();
 	suggestions.classList.remove('has-suggestions');
 	//create regular expression from input.value str
 	let lttrMatch = new RegExp(input.value, 'i');
@@ -45,12 +50,12 @@ function showSuggestions(results) {
 }
 
 function useSuggestion(e) {
-	console.log(e);
 	let usedSugg = e.target.closest('li').innerText;
 	input.value = usedSugg;
-	suggestions.innerHTML = '';
+	hideSuggestions();
 	suggestions.classList.remove('has-suggestions');
 }
 
 input.addEventListener('keyup', searchHandler);
 suggestions.addEventListener('click', useSuggestion);
+body.addEventListener('click', hideSuggestions);

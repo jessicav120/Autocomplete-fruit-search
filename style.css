@@ -19,26 +19,28 @@ body {
 .search-container input {
  padding: 15px;
  border: 1.5px rgba(212, 168, 10, 0.5) solid;
- border-radius: 30px;
- background-color: rgba(254, 230, 19, 0.7);
+ border: none;
 }
 
-input:focus{
-  background-color: rgba(254, 230, 19, 1);
+.search-container input,
+.search-container .suggestions {
+  background-color: rgba(255, 240, 108,0.5);
 }
 
 .search-container .suggestions {
+   height: auto;
    max-height: 260px;
    width: 50vw;
    max-width: 450px;
    position: absolute;
    top: 100%;
-   margin: 8px auto;
    overflow: hidden;
+   /* box-shadow: 0px 0px 10px rgb(103, 95, 126); */
+   box-shadow: 0px 6px 10px -5px rgb(103, 95, 126), 0px 6px 10px -8px rgb(103, 95, 126);
 }
 
 ul {
-  max-height: 0;  
+  height: 0;  
   padding: 0;
   margin: 0;
 }
@@ -46,14 +48,14 @@ ul {
 ul.has-suggestions {
   width: 500px;
   height: inherit;
-  max-height: 300px;
+  max-height: inherit;
   overflow: auto;
 }
+
 ul li {
   padding: 10px;
   margin-bottom: 3px;
   list-style: none;
-  background-color: rgba(254, 230, 19, 0.5);
 }
 ul li:hover {
   cursor: pointer;
